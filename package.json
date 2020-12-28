@@ -1,0 +1,12 @@
+{
+  "name": "pgi-chatbot",
+  "version": "0.0.1",
+  "description": "A small npm library for handling chatbot necessities for Saddlemountain Technologies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc -t es6 bin/chatbot.ts --outDir lib"
+  },
+  "author": "FSolM <fersolmarin@gmail.com>",
+  "license": "MIT"
+}
