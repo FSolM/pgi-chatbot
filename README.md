@@ -4,6 +4,14 @@
 
 This bot uses a `Typescript` module to organize and better understand the code's structure. This module exports the main `ChatBot` class that works as the API's backbone.
 
+### Usage
+
+To install the package, use the following command:
+
+```
+$ npm i pgi-chatbot
+```
+
 To initialize the bot first, import the main class into the desired project:
 
 ```Javascript
