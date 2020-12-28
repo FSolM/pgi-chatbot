@@ -1,6 +1,6 @@
 {
   "name": "pgi-chatbot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small npm library for handling chatbot necessities for Saddlemountain Technologies",
   "main": "index.js",
   "scripts": {

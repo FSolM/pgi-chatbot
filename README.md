@@ -12,7 +12,7 @@ To install the package, use the following command:
 $ npm i pgi-chatbot
 ```
 
-To initialize the bot first, import the main class into the desired project:
+To initialize the bot, first, import the main class into the desired project:
 
 ```Javascript
 import ChatBot from 'pgi-chatbot'
@@ -53,6 +53,22 @@ const chatbot = new ChatBot(container, library);
 ```
 
 ### Aditional Notes
+
+#### Welcome Message
+
+The bot contains a customizable welcoming message; to run it, first, initialize the bot and then run the `welcome()` method:
+
+```Javascript
+const chatbot = new ChatBot(container, library);
+
+chatbot.welcome();
+```
+
+To customize the message, pass a `string` argument to the `welcome()` method:
+
+```Javascript
+chatbot.welcome('Hello there!');
+```
 
 #### Library
 
