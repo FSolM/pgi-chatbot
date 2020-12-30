@@ -52,7 +52,7 @@ const library = {
 const chatbot = new ChatBot(container, library);
 ```
 
-### Aditional Notes
+### Methods
 
 #### Welcome Message
 
@@ -70,11 +70,79 @@ To customize the message, pass a `string` argument to the `welcome()` method:
 chatbot.welcome('Hello there!');
 ```
 
+#### Listen
+
+The `listen` method is the basic entry point for the bot; it receives the message that the user has submitted and displays it in the previously defined container, then analyzes said message with the current library, and responds with either the defined answer or an error message if the message wasn't found in the `library`.
+
+```Javascript
+const container = document.getElementById('chat-container');
+
+const library = { 'hello': "Hi!" };
+
+const chatbot = new ChatBot(container, library);
+
+chatbot.listen('Hello');
+
+// Container Data:
+// -> Hello
+// -> Hi!
+
+chatbot.listen('Hi there');
+
+// Container Data:
+// -> Hello
+// -> Hi!
+// -> Hi there
+// -> Sorry, I didn't quite catched that
+```
+
+#### Respond
+
+The `respond` method works similar to the `listen` one, except that it receives two parameters: a string message and an iterator instead of just the message. It's recommended to use this method when handling array libraries since the iterator will search for the respective answer pair in the array.
+
+```Javascript
+const container = document.getElementById('chat-container');
+
+const library = ["Hi!"]
+
+const chatbot = new ChatBot(container, library);
+
+chatbot.respond('Hello!', 0);
+
+// Container Data:
+// -> Hello!
+// -> Hi!
+
+chatbot.respond('Hey!', 1);
+
+// Container Data:
+// -> Hello!
+// -> Hi!
+// -> Hey!
+// -> Sorry, I didn't quite catched that
+```
+
 #### Library
 
 The `library` may be one of the most important parts of the API; its format is a `Javascript` object that contains a series of `string keys` and `string` answers.
 
 The keys must be in lowercase and can have a `|` separator if an answer can be triggered by more than one question.
+
+Additionally, the `library` supports an array as its argument for listening to the user. It's recommended to use this method to implement an automatic form submission via the bot.
+
+### Aditional Notes
+
+#### Setters
+
+You can personalize the class name for the bot messages, the user messages and the error message utilizing the class' setters:
+
+```Javascript
+chatbot.botClassName = 'new-bot-class';
+
+chatbot.userClassName = 'new-user-class';
+
+chatbot.errorMessage = 'New error message!';
+```
 
 #### NPM Scripting
 
